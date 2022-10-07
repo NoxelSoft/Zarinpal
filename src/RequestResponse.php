@@ -40,7 +40,9 @@ class RequestResponse
             return '';
         }
 
-        $url = 'https://www.zarinpal.com/pg/StartPay/';
+        $url = config('zarinpal.sandbox_enabled')
+            ? 'https://sandbox.zarinpal.com/pg/StartPay/'
+            : 'https://www.zarinpal.com/pg/StartPay/';
 
         return $url.$this->authority;
     }

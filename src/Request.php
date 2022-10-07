@@ -32,7 +32,9 @@ class Request
 
     public function send(): RequestResponse
     {
-        $url = 'https://api.zarinpal.com/pg/v4/payment/request.json';
+        $url = config('zarinpal.sandbox_enabled')
+            ? 'https://sandbox.zarinpal.com/pg/v4/payment/request.json'
+            : 'https://api.zarinpal.com/pg/v4/payment/request.json';
 
         $metadata = [];
         
